@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#007AFF">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Calendar">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+
+    <title>Calendar OhMyBlock!</title>
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="assets/icons/icon-192.png">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/daily.css">
+    <link rel="stylesheet" href="css/weekly.css">
+    <link rel="stylesheet" href="css/monthly.css">
+    <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+    <div id="app">
+        <header id="app-header">
+            <button id="header-left" class="header-btn" aria-label="Periodo precedente">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M14.5 6.5L9 12l5.5 5.5"></path>
+                </svg>
+            </button>
+
+            <div id="header-center">
+                <h1 id="header-title">Today</h1>
+            </div>
+
+            <div id="header-right">
+                <button id="search-btn" class="header-btn" aria-label="Apri ricerca">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="10.5" cy="10.5" r="5.75"></circle>
+                        <path d="M14.75 14.75L19 19"></path>
+                    </svg>
+                </button>
+
+                <button id="stats-btn" class="header-btn" aria-label="Apri dashboard">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="4.5" y="4.5" width="6.5" height="6.5" rx="1.8"></rect>
+                        <rect x="13" y="4.5" width="6.5" height="10" rx="1.8"></rect>
+                        <rect x="4.5" y="13" width="6.5" height="6.5" rx="1.8"></rect>
+                        <rect x="13" y="16.5" width="6.5" height="3" rx="1.5"></rect>
+                    </svg>
+                </button>
+
+                <button id="settings-btn" class="header-btn" aria-label="Apri impostazioni">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1 1 0 0 0-1.1-.2 1 1 0 0 0-.6.9V20a2 2 0 1 1-4 0v-.2a1 1 0 0 0-.6-.9 1 1 0 0 0-1.1.2l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1 1 0 0 0 .2-1.1 1 1 0 0 0-.9-.6H4a2 2 0 1 1 0-4h.2a1 1 0 0 0 .9-.6 1 1 0 0 0-.2-1.1l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1 1 0 0 0 1.1.2 1 1 0 0 0 .6-.9V4a2 2 0 1 1 4 0v.2a1 1 0 0 0 .6.9 1 1 0 0 0 1.1-.2l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1 1 0 0 0-.2 1.1 1 1 0 0 0 .9.6H20a2 2 0 1 1 0 4h-.2a1 1 0 0 0-.9.6z"></path>
+                    </svg>
+                </button>
+
+                <button id="layout-toggle" class="header-btn" aria-label="Cambia vista">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="4" y="4" width="6.5" height="6.5" rx="1.8"></rect>
+                        <rect x="13.5" y="4" width="6.5" height="6.5" rx="1.8"></rect>
+                        <rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.8"></rect>
+                        <rect x="4" y="13.5" width="6.5" height="6.5" rx="1.8"></rect>
+                    </svg>
+                </button>
+
+                <button id="header-right-btn" class="header-btn" aria-label="Periodo successivo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M9.5 6.5L15 12l-5.5 5.5"></path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <section id="search-panel" class="search-panel hidden" aria-label="Ricerca e filtri">
+            <div class="search-row">
+                <input type="search" id="search-query" placeholder="Cerca eventi, task o note..." aria-label="Cerca testo">
+                <input type="date" id="search-date" aria-label="Filtra per data">
+                <button id="search-clear" class="btn search-clear-btn" aria-label="Pulisci ricerca">Pulisci</button>
+            </div>
+            <div id="search-chips" class="search-chips" aria-label="Filtri rapidi ricerca">
+                <button class="search-chip active" data-chip="all" type="button">Tutto</button>
+                <button class="search-chip" data-chip="events" type="button">Eventi</button>
+                <button class="search-chip" data-chip="tasks" type="button">Task</button>
+                <button class="search-chip" data-chip="notes" type="button">Note</button>
+                <button class="search-chip" data-chip="important" type="button">Importanti</button>
+                <button class="search-chip" data-chip="today" type="button">Oggi</button>
+            </div>
+        </section>
+
+        <main id="app-content">
+        </main>
+
+        <button id="quick-add-trigger" class="quick-add-trigger" aria-label="Apri inserimento rapido">
+            <span>+</span>
+        </button>
+
+        <div id="settings-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <header class="modal-header">
+                    <button id="settings-reset" class="header-btn modal-action-btn">
+                        <span>Ripristina</span>
+                    </button>
+                    <h2>Impostazioni</h2>
+                    <button id="settings-close" class="header-btn modal-icon-btn" aria-label="Chiudi impostazioni">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </header>
+
+                <div class="settings-body">
+                    <section class="settings-section">
+                        <h3>Orari</h3>
+                        <div class="setting-item">
+                            <label for="start-hour">Ora inizio</label>
+                            <select id="start-hour"></select>
+                        </div>
+                        <div class="setting-item">
+                            <label for="end-hour">Ora fine</label>
+                            <select id="end-hour"></select>
+                        </div>
+                        <div class="setting-item">
+                            <label for="interval">Intervallo</label>
+                            <select id="interval">
+                                <option value="15">15 minuti</option>
+                                <option value="30">30 minuti</option>
+                                <option value="60">1 ora</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label for="week-start-select">Inizio settimana</label>
+                            <select id="week-start-select">
+                                <option value="1">Lunedi</option>
+                                <option value="0">Domenica</option>
+                                <option value="6">Sabato</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label for="time-format-select">Formato ora</label>
+                            <select id="time-format-select">
+                                <option value="24h">24 ore</option>
+                                <option value="12h">12 ore</option>
+                            </select>
+                        </div>
+                    </section>
+
+                    <section class="settings-section">
+                        <h3>Aspetto</h3>
+                        <div class="setting-item">
+                            <label for="palette-select">Palette</label>
+                            <select id="palette-select">
+                                <option value="custom">Personalizzata</option>
+                                <option value="ocean">Ocean</option>
+                                <option value="forest">Forest</option>
+                                <option value="sunset">Sunset</option>
+                                <option value="slate">Slate</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label for="primary-color">Colore principale</label>
+                            <input type="color" id="primary-color" value="#007AFF">
+                        </div>
+                        <div class="setting-item">
+                            <label for="font-select">Font</label>
+                            <select id="font-select">
+                                <option value="Inter">Inter</option>
+                                <option value="Manrope">Manrope</option>
+                                <option value="SF Pro">SF Pro</option>
+                                <option value="System">System</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label for="theme-select">Tema</label>
+                            <select id="theme-select">
+                                <option value="light">Chiaro</option>
+                                <option value="dark">Scuro</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label for="layout-select">Layout</label>
+                            <select id="layout-select">
+                                <option value="vertical">Verticale</option>
+                                <option value="horizontal">Orizzontale</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label for="density-select">Densita</label>
+                            <select id="density-select">
+                                <option value="cozy">Comoda e ariosa</option>
+                                <option value="compact">Molto compatta</option>
+                            </select>
+                        </div>
+                        <div class="setting-item setting-item-checkbox">
+                            <label for="minimal-mode">Modalita minimal</label>
+                            <input type="checkbox" id="minimal-mode">
+                        </div>
+                    </section>
+
+                    <section class="settings-section">
+                        <h3>Promemoria</h3>
+                        <div class="setting-item setting-item-checkbox">
+                            <label for="notifications-enabled">Notifiche locali</label>
+                            <input type="checkbox" id="notifications-enabled">
+                        </div>
+                        <div class="setting-item">
+                            <label for="reminder-minutes">Anticipo promemoria</label>
+                            <select id="reminder-minutes">
+                                <option value="5">5 minuti</option>
+                                <option value="10">10 minuti</option>
+                                <option value="15">15 minuti</option>
+                                <option value="30">30 minuti</option>
+                            </select>
+                        </div>
+                    </section>
+
+                    <section class="settings-section">
+                        <h3>Sicurezza</h3>
+                        <div class="setting-item">
+                            <label for="lock-method-select">Blocco app</label>
+                            <select id="lock-method-select">
+                                <option value="none">Disattivato</option>
+                                <option value="pin">PIN</option>
+                                <option value="biometric">Biometria</option>
+                            </select>
+                        </div>
+                        <div class="settings-actions">
+                            <button id="change-pin" class="btn settings-action-btn">Imposta o cambia PIN</button>
+                        </div>
+                        <p class="settings-help">La biometria usa il sistema di autenticazione del dispositivo se il browser la supporta.</p>
+                    </section>
+
+                    <section class="settings-section">
+                        <h3>Sincronizzazione</h3>
+                        <div class="settings-sync-grid">
+                            <div class="settings-sync-card">
+                                <strong>Google Calendar</strong>
+                                <p>Compatibilita tramite file calendario `.ics`.</p>
+                                <button id="export-google-ics" class="btn settings-action-btn">Esporta .ics</button>
+                            </div>
+                            <div class="settings-sync-card">
+                                <strong>Microsoft Outlook</strong>
+                                <p>Compatibilita tramite file calendario `.ics`.</p>
+                                <button id="export-outlook-ics" class="btn settings-action-btn">Esporta .ics</button>
+                            </div>
+                            <div class="settings-sync-card">
+                                <strong>Apple Calendar</strong>
+                                <p>Compatibilita tramite file calendario `.ics`.</p>
+                                <button id="export-apple-ics" class="btn settings-action-btn">Esporta .ics</button>
+                            </div>
+                        </div>
+                        <div class="settings-actions">
+                            <button id="import-ics" class="btn settings-action-btn">Importa calendario .ics</button>
+                            <input type="file" id="import-ics-file" accept=".ics,text/calendar" class="hidden">
+                        </div>
+                        <p class="settings-help">La sync live bidirezionale richiede autorizzazioni esterne. Qui puoi importare o esportare calendari in formato interoperabile.</p>
+                    </section>
+
+                    <section class="settings-section">
+                        <h3>Backup</h3>
+                        <div class="settings-actions">
+                            <button id="export-backup" class="btn settings-action-btn">Esporta backup</button>
+                            <button id="import-backup" class="btn settings-action-btn">Importa backup</button>
+                            <input type="file" id="import-backup-file" accept="application/json" class="hidden">
+                        </div>
+                        <p class="settings-help">Esporta o ripristina eventi, task, note, pasti e impostazioni.</p>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <div id="event-modal" class="modal" style="display: none;">
+            <div class="modal-content modal-small">
+                <header class="modal-header">
+                    <button id="event-cancel" class="header-btn modal-action-btn">Annulla</button>
+                    <h2 id="event-modal-title">Nuovo evento</h2>
+                    <button id="event-save" class="header-btn modal-action-btn primary">Aggiungi</button>
+                </header>
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="text" id="event-text" placeholder="Evento" autocomplete="off" aria-label="Titolo evento">
+                    </div>
+                    <div class="form-group">
+                        <input type="time" id="event-time" aria-label="Orario evento">
+                    </div>
+                    <div class="form-group">
+                        <select id="event-recurrence" aria-label="Ricorrenza evento">
+                            <option value="none">Nessuna ricorrenza</option>
+                            <option value="daily">Ogni giorno</option>
+                            <option value="weekly">Ogni settimana</option>
+                            <option value="monthly">Ogni mese</option>
+                        </select>
+                    </div>
+                    <div class="form-group hidden" id="event-until-group">
+                        <input type="date" id="event-until" aria-label="Fine ricorrenza">
+                    </div>
+                    <button id="event-delete" class="btn settings-action-btn settings-action-btn-danger hidden">Elimina evento</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="quick-add-modal" class="modal" style="display: none;">
+            <div class="modal-content modal-small">
+                <header class="modal-header">
+                    <button id="quick-add-cancel" class="header-btn modal-action-btn">Chiudi</button>
+                    <h2>Quick Add</h2>
+                    <button id="quick-add-save" class="header-btn modal-action-btn primary">Salva</button>
+                </header>
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="quick-add-input" class="quick-add-label-text">Nome</label>
+                        <input type="text" id="quick-add-input" placeholder="Nome evento, nota o task" autocomplete="off" aria-label="Nome elemento">
+                    </div>
+                    <div class="quick-add-options">
+                        <div class="form-group">
+                            <label for="quick-add-type" class="quick-add-label-text">Tipo</label>
+                            <select id="quick-add-type" aria-label="Tipo elemento">
+                                <option value="event">Evento</option>
+                                <option value="task">Task</option>
+                                <option value="note">Nota</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="quick-add-date" class="quick-add-label-text">Giorno</label>
+                            <input type="date" id="quick-add-date" aria-label="Giorno manuale">
+                        </div>
+                        <div class="form-group">
+                            <label for="quick-add-time" class="quick-add-label-text">Orario</label>
+                            <input type="time" id="quick-add-time" aria-label="Orario manuale">
+                        </div>
+                    </div>
+                    <div class="quick-add-flag">
+                        <label for="quick-add-important" class="quick-add-flag-label">Importante</label>
+                        <input type="checkbox" id="quick-add-important" aria-label="Segna come importante">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="app-lock-screen" class="app-lock-screen hidden" aria-live="polite">
+        <div class="app-lock-card">
+            <h2>App bloccata</h2>
+            <p id="app-lock-description">Sblocca per continuare.</p>
+            <div id="app-lock-pin-group" class="app-lock-pin-group hidden">
+                <input type="password" id="app-lock-pin-input" inputmode="numeric" autocomplete="off" placeholder="Inserisci PIN" aria-label="Inserisci PIN">
+                <button id="app-lock-pin-submit" class="btn">Sblocca</button>
+            </div>
+            <div id="app-lock-bio-group" class="app-lock-bio-group hidden">
+                <button id="app-lock-bio-submit" class="btn">Sblocca con biometria</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/utils/date.js"></script>
+    <script src="js/utils/ui.js"></script>
+    <script src="js/eventbus.js"></script>
+    <script src="js/datastore.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/components/header.js"></script>
+    <script src="js/components/settings.js"></script>
+    <script src="js/components/event-modal.js"></script>
+    <script src="js/components/quick-add.js"></script>
+    <script src="js/components/app-lock.js"></script>
+    <script src="js/views/daily.js"></script>
+    <script src="js/views/weekly.js"></script>
+    <script src="js/views/monthly.js"></script>
+    <script src="js/views/statistics.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
